@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ahmed Fathy | Senior DevOps & Cloud Platform Engineer</title>
+    <meta name="description" content="Portfolio of Ahmed Fathy - Senior DevOps, SRE & Cloud Platform Engineer specializing in Kubernetes, Terraform, HashiCorp Vault, AWS, GitOps & DevSecOps.">
+    <meta name="keywords" content="DevOps, SRE, Platform Engineer, Kubernetes, Terraform, HashiCorp, AWS, Docker, CI/CD, ArgoCD, DevSecOps, Cloud Engineer">
+    <meta name="author" content="Ahmed Fathy">
+    
+    <!-- Open Graph / Meta -->
+    <meta property="og:title" content="Ahmed Fathy | Senior DevOps & Platform Engineer">
+    <meta property="og:description" content="Automating Infrastructure. Scaling Clouds. Engineering Reliability.">
+    <meta property="og:type" content="website">
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-dark text-slate-200">
+    <!-- Background Grid Effect & Cyber Glows -->
+    <div class="cloud-grid-bg"></div>
+    <div class="ambient-glow glow-1"></div>
+    <div class="ambient-glow glow-2"></div>
+    <div class="ambient-glow glow-3"></div>
+
+    <!-- Top Infrastructure Health Bar -->
+    <div class="top-status-bar">
+        <div class="container status-bar-content">
+            <div class="status-indicator">
+                <span class="status-beacon ping"></span>
+                <span class="status-beacon dot"></span>
+                <span class="status-label font-mono"><strong class="text-success">SYSTEMS OPERATIONAL</strong> // Cluster: us-east-1 (EKS v1.30)</span>
+            </div>
+            <div class="status-right font-mono text-xs">
+                <span class="status-tag"><i class="fas fa-shield-alt text-accent"></i> Vault: Sealed (Auto-Unseal Active)</span>
+                <span class="status-tag"><i class="fas fa-code-branch text-purple"></i> GitOps: Synced</span>
+                <span class="status-tag status-available"><i class="fas fa-bolt text-warning"></i> Open for SRE / DevOps Roles</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation Header -->
+    <header class="site-header" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="brand-logo">
+                <div class="logo-icon font-mono">
+                    <span class="logo-bracket">&gt;_</span>
+                </div>
+                <div class="logo-text">
+                    <span class="logo-name">ahmed.fathy</span>
+                    <span class="logo-sub font-mono">platform.devops</span>
+                </div>
+            </a>
+
+            <nav class="nav-links" id="navMenu">
+                <a href="#about" class="nav-link"><i class="fas fa-terminal text-muted"></i> Overview</a>
+                <a href="#toolchain" class="nav-link"><i class="fas fa-layer-group text-muted"></i> Toolchain</a>
+                <a href="#pipeline" class="nav-link"><i class="fas fa-project-diagram text-muted"></i> Architecture</a>
+                <a href="#projects" class="nav-link"><i class="fas fa-server text-muted"></i> Projects</a>
+                <a href="#terminal-section" class="nav-link"><i class="fas fa-cube text-muted"></i> CLI Sandbox</a>
+                <a href="#certifications" class="nav-link"><i class="fas fa-certificate text-muted"></i> Certs</a>
+                <a href="#contact" class="nav-btn">Get In Touch</a>
+            </nav>
+
+            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="hero" class="hero-section">
+            <div class="container hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge font-mono">
+                        <i class="fas fa-cloud text-accent"></i>
+                        <span>INFRASTRUCTURE AS CODE • CLOUD ARCHITECTURE • SRE</span>
+                    </div>
+                    
+                    <h1 class="hero-title">
+                        Building Resilient Clouds.<br>
+                        <span class="gradient-text">Automating Everything.</span>
+                    </h1>
+
+                    <p class="hero-desc">
+                        Hi, I'm <strong class="text-white">Ahmed Fathy</strong>, a Senior DevOps & Cloud Platform Engineer. 
+                        I bridge software delivery and enterprise-grade infrastructure using the 
+                        <span class="text-accent">HashiCorp ecosystem (Terraform, Vault)</span>, 
+                        <span class="text-purple">Kubernetes</span>, GitOps, and zero-downtime CI/CD pipelines.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="#projects" class="btn btn-primary">
+                            <i class="fas fa-cubes"></i> View Infrastructure Projects
+                        </a>
+                        <a href="#terminal-section" class="btn btn-secondary">
+                            <i class="fas fa-terminal"></i> Launch Cloud CLI
+                        </a>
+                        <a href="#contact" class="btn btn-outline">
+                            <i class="fas fa-envelope"></i> Hire Me
+                        </a>
+                    </div>
+
+                    <!-- Quick Code Snippet Pill -->
+                    <div class="code-quote-pill font-mono">
+                        <span class="text-purple">$</span> terraform apply -target=module.kubernetes_cluster --auto-approve
+                        <span class="pill-check"><i class="fas fa-check"></i> Applied: 14 resources added</span>
+                    </div>
+                </div>
+
+                <!-- Hero Interactive Architecture Visual Box -->
+                <div class="hero-visual">
+                    <div class="infra-card-window">
+                        <div class="window-header">
+                            <div class="window-dots">
+                                <span class="dot-red"></span>
+                                <span class="dot-yellow"></span>
+                                <span class="dot-green"></span>
+                            </div>
+                            <span class="window-title font-mono"><i class="fas fa-shield-alt text-accent"></i> cluster-topology.tf.json</span>
+                            <span class="window-badge font-mono">HA • Multi-AZ</span>
+                        </div>
+                        <div class="window-body font-mono">
+                            <div class="topology-stack">
+                                <div class="topo-layer">
+                                    <div class="layer-header"><i class="fas fa-globe text-accent"></i> Cloudflare / Edge Ingress & WAF</div>
+                                    <div class="layer-desc">TLS 1.3 Termination • DDoS Mitigation • Anycast DNS</div>
+                                </div>
+                                <div class="topo-connector">
+                                    <span class="arrow-down"></span>
+                                </div>
+                                <div class="topo-layer">
+                                    <div class="layer-header"><i class="fab fa-aws text-warning"></i> AWS EKS / Multi-AZ VPC</div>
+                                    <div class="layer-pills">
+                                        <span class="badge-pill">Kube-System</span>
+                                        <span class="badge-pill">Istio Service Mesh</span>
+                                        <span class="badge-pill">ArgoCD Controller</span>
+                                        <span class="badge-pill">Karpenter Autoscaler</span>
+                                    </div>
+                                </div>
+                                <div class="topo-connector">
+                                    <span class="arrow-down"></span>
+                                </div>
+                                <div class="topo-layer">
+                                    <div class="layer-header"><i class="fas fa-key text-purple"></i> HashiCorp Vault Zero-Trust Hub</div>
+                                    <div class="layer-desc">Dynamic DB Credentials • AWS IRSA Auth • Auto-rotation</div>
+                                </div>
+                                <div class="topo-connector">
+                                    <span class="arrow-down"></span>
+                                </div>
+                                <div class="topo-layer">
+                                    <div class="layer-header"><i class="fas fa-chart-line text-success"></i> Observability Mesh (Prometheus + Grafana)</div>
+                                    <div class="layer-desc">SLO/SLI Dashboards • Loki Logs • Alertmanager PagerDuty</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Core Operational Metrics Grid -->
+            <div class="container hero-metrics-container">
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-heartbeat text-success"></i></div>
+                        <div class="metric-number font-mono" data-counter="99.99">99.99%</div>
+                        <div class="metric-title">Production SLA Uptime</div>
+                        <div class="metric-desc">High availability across multi-region deployments</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-stopwatch text-accent"></i></div>
+                        <div class="metric-number font-mono" data-counter="12">&lt; 15 min</div>
+                        <div class="metric-title">Mean Time to Recovery (MTTR)</div>
+                        <div class="metric-desc">Automated rollbacks & self-healing health checks</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-rocket text-purple"></i></div>
+                        <div class="metric-number font-mono" data-counter="75">70%+</div>
+                        <div class="metric-title">Faster Deployment Cycles</div>
+                        <div class="metric-desc">Trunk-based GitOps with ArgoCD & GitHub Actions</div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-icon"><i class="fas fa-piggy-bank text-warning"></i></div>
+                        <div class="metric-number font-mono" data-counter="42">40%+</div>
+                        <div class="metric-title">Cloud Spend Optimized</div>
+                        <div class="metric-desc">FinOps practices, Spot instances, Karpenter autoscaling</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About & Philosophy Section -->
+        <section id="about" class="section about-section">
+            <div class="container">
+                <div class="section-tag font-mono">01 // IDENTITY & ENGINEERING PHILOSOPHY</div>
+                <h2 class="section-title">Engineered for Reliability & Scale</h2>
+
+                <div class="about-grid">
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fas fa-code-branch text-purple"></i></div>
+                        <h3>GitOps as Single Source of Truth</h3>
+                        <p>
+                            Everything lives in version control. Infrastructure changes are audited through pull requests, tested with automated policy engines (OPA/Conftest), and continuously reconciled using ArgoCD to eliminate configuration drift.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fas fa-shield-virus text-accent"></i></div>
+                        <h3>Shift-Left DevSecOps</h3>
+                        <p>
+                            Security is not a checkbox at the end of the line. I embed static security analysis (Semgrep, SonarQube), container image scanning (Trivy), secret scanning (Gitleaks), and cryptographic signing (Cosign/Sigstore) into every commit.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fas fa-cube text-warning"></i></div>
+                        <h3>Immutable & Declarative Infrastructure</h3>
+                        <p>
+                            Say goodbye to snowflake servers. Using Terraform, OpenTofu, Packer, and Ansible, environments are spun up idempotently, tested automatically, and destroyed cleanly without human error or manual SSH sessions.
+                        </p>
+                    </div>
+
+                    <div class="about-card">
+                        <div class="about-icon"><i class="fas fa-tachometer-alt text-success"></i></div>
+                        <h3>Actionable Observability & SRE</h3>
+                        <p>
+                            Telemetry over speculation. I design comprehensive SLI/SLO frameworks with Prometheus, Grafana, OpenTelemetry, and Alertmanager, transforming raw logs and metrics into actionable alerts with runbooks.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tech Stack / Toolchain Matrix -->
+        <section id="toolchain" class="section toolchain-section">
+            <div class="container">
+                <div class="section-tag font-mono">02 // TECH STACK & TOOLCHAIN</div>
+                <h2 class="section-title">The DevOps & Cloud Platform Arsenal</h2>
+                <p class="section-subtitle">
+                    Production-proven tools configured with security, repeatability, and high availability in mind.
+                </p>
+
+                <!-- Toolchain Filter Buttons -->
+                <div class="toolchain-tabs">
+                    <button class="toolchain-tab active" data-filter="all">All Tools</button>
+                    <button class="toolchain-tab" data-filter="iac">IaC & HashiCorp</button>
+                    <button class="toolchain-tab" data-filter="containers">Kubernetes & Containers</button>
+                    <button class="toolchain-tab" data-filter="cicd">CI/CD & GitOps</button>
+                    <button class="toolchain-tab" data-filter="cloud">Cloud & Linux</button>
+                    <button class="toolchain-tab" data-filter="observability">Observability & SRE</button>
+                    <button class="toolchain-tab" data-filter="security">Security & Secrets</button>
+                </div>
+
+                <!-- Tools Grid -->
+                <div class="tools-grid" id="toolsGrid">
+                    <!-- Terraform -->
+                    <div class="tool-card" data-category="iac">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-iac">HashiCorp</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-layer-group tool-icon text-purple"></i>
+                            <div class="tool-info">
+                                <h4>Terraform & OpenTofu</h4>
+                                <p>Modular IaC, Terragrunt, remote backends, state locking, drift detection, Sentinel/OPA policies.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- HashiCorp Vault -->
+                    <div class="tool-card" data-category="iac security">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-security">Security</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-key tool-icon text-accent"></i>
+                            <div class="tool-info">
+                                <h4>HashiCorp Vault</h4>
+                                <p>Dynamic secrets engine, PKI TLS certificates, Transit encryption-as-a-service, AWS/K8s auth methods.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Kubernetes -->
+                    <div class="tool-card" data-category="containers">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-k8s">Orchestration</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-dharmachakra tool-icon text-accent"></i>
+                            <div class="tool-info">
+                                <h4>Kubernetes (K8s) & EKS</h4>
+                                <p>Cluster lifecycle, CNI (Cilium, AWS VPC CNI), Ingress, Helm v3, Kustomize, Karpenter, HPA/VPA.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Docker -->
+                    <div class="tool-card" data-category="containers">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-k8s">Containers</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fab fa-docker tool-icon text-accent"></i>
+                            <div class="tool-info">
+                                <h4>Docker & BuildKit</h4>
+                                <p>Hardened multi-stage builds, non-root users, distroless images, multi-arch builds (AMD64/ARM64).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ArgoCD -->
+                    <div class="tool-card" data-category="cicd containers">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-cicd">GitOps</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-sync-alt tool-icon text-warning"></i>
+                            <div class="tool-info">
+                                <h4>ArgoCD & GitOps</h4>
+                                <p>ApplicationSet controllers, Progressive delivery with Argo Rollouts (Canary & Blue/Green), sync waves.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- GitHub Actions -->
+                    <div class="tool-card" data-category="cicd">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-cicd">Automation</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fab fa-github tool-icon text-white"></i>
+                            <div class="tool-info">
+                                <h4>GitHub Actions & GitLab CI</h4>
+                                <p>Reusable composite actions, Matrix workflows, OIDC AWS authentication (zero long-lived credentials).</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- AWS Cloud -->
+                    <div class="tool-card" data-category="cloud">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-cloud">Cloud</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fab fa-aws tool-icon text-warning"></i>
+                            <div class="tool-info">
+                                <h4>Amazon Web Services (AWS)</h4>
+                                <p>EKS, VPC, Transit Gateway, IAM Roles Anywhere, S3, RDS Multi-AZ, Route53, CloudWatch, KMS.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prometheus & Grafana -->
+                    <div class="tool-card" data-category="observability">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-obs">Monitoring</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-chart-area tool-icon text-warning"></i>
+                            <div class="tool-info">
+                                <h4>Prometheus & Grafana</h4>
+                                <p>PromQL queries, custom exporters, ServiceMonitors, Grafana Dashboards-as-Code, Alertmanager routing.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Ansible & Configuration Management -->
+                    <div class="tool-card" data-category="iac">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-iac">Config Mgmt</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-network-wired tool-icon text-danger"></i>
+                            <div class="tool-info">
+                                <h4>Ansible & Packer</h4>
+                                <p>Idempotent playbooks, hardened golden AMI building, dynamic inventory, Jinja2 templating.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Linux & Scripting -->
+                    <div class="tool-card" data-category="cloud">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-cloud">Core OS</span>
+                            <span class="tool-level font-mono">Expert</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fab fa-linux tool-icon text-warning"></i>
+                            <div class="tool-info">
+                                <h4>Linux Kernel, Bash & Python</h4>
+                                <p>Systemd, iptables/eBPF, performance profiling, POSIX scripting, Python automation scripts & Go CLI tools.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Trivy & DevSecOps -->
+                    <div class="tool-card" data-category="security">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-security">DevSecOps</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-user-shield tool-icon text-success"></i>
+                            <div class="tool-info">
+                                <h4>Trivy, Cosign & Kyverno</h4>
+                                <p>Vulnerability scanning (CVEs, misconfigurations, secrets), container image signing, K8s admission controllers.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- ELK & OpenTelemetry -->
+                    <div class="tool-card" data-category="observability">
+                        <div class="tool-header">
+                            <span class="tool-badge badge-obs">Observability</span>
+                            <span class="tool-level font-mono">Advanced</span>
+                        </div>
+                        <div class="tool-main">
+                            <i class="fas fa-stream tool-icon text-accent"></i>
+                            <div class="tool-info">
+                                <h4>OpenTelemetry & Loki / ELK</h4>
+                                <p>Distributed tracing across microservices, centralized structured log aggregation, log retention policies.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive DevOps Architecture & Pipeline Visualizer -->
+        <section id="pipeline" class="section pipeline-section">
+            <div class="container">
+                <div class="section-tag font-mono">03 // PIPELINE ARCHITECTURE</div>
+                <h2 class="section-title">End-to-End Enterprise CI/CD & GitOps Flow</h2>
+                <p class="section-subtitle">
+                    Click through the stages below to inspect the pipeline architecture, security gates, and configuration manifests.
+                </p>
+
+                <!-- Interactive Pipeline Flowchart -->
+                <div class="pipeline-stepper">
+                    <button class="step-node active" data-step="1">
+                        <span class="step-num font-mono">01</span>
+                        <span class="step-name"><i class="fas fa-code-commit"></i> Commit & Lint</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-node" data-step="2">
+                        <span class="step-num font-mono">02</span>
+                        <span class="step-name"><i class="fas fa-shield-alt"></i> Security Gates</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-node" data-step="3">
+                        <span class="step-num font-mono">03</span>
+                        <span class="step-name"><i class="fab fa-docker"></i> Build & Sign</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-node" data-step="4">
+                        <span class="step-num font-mono">04</span>
+                        <span class="step-name"><i class="fas fa-sync-alt"></i> GitOps Sync</span>
+                    </button>
+                    <div class="step-line"></div>
+                    <button class="step-node" data-step="5">
+                        <span class="step-num font-mono">05</span>
+                        <span class="step-name"><i class="fas fa-satellite-dish"></i> Telemetry & SRE</span>
+                    </button>
+                </div>
+
+                <!-- Pipeline Details Display Box -->
+                <div class="pipeline-detail-box" id="pipelineDetailBox">
+                    <!-- Populated dynamically via JS -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Projects Showcase -->
+        <section id="projects" class="section projects-section">
+            <div class="container">
+                <div class="section-tag font-mono">04 // PRODUCTION CASE STUDIES</div>
+                <h2 class="section-title">Highlighted Engineering Projects</h2>
+                <p class="section-subtitle">Real-world production implementations addressing reliability, security, scalability, and developer experience.</p>
+
+                <div class="projects-grid">
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag tag-k8s">Kubernetes</span>
+                                <span class="tag tag-gitops">ArgoCD</span>
+                                <span class="tag tag-aws">AWS EKS</span>
+                                <span class="tag tag-mesh">Istio</span>
+                            </div>
+                            <span class="project-year font-mono">PROD ACTIVE</span>
+                        </div>
+
+                        <h3 class="project-title">Multi-Cluster GitOps Platform with Automated Canary Deployments</h3>
+                        
+                        <p class="project-summary">
+                            Architected an enterprise-grade multi-cluster Kubernetes platform serving 80+ microservices across 3 AWS regions with zero deployment downtime.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>ArgoCD ApplicationSets</strong> to manage clusters declaratively across staging and production.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Argo Rollouts + Istio</strong> canary analysis with automatic rollback upon HTTP 5xx error spikes (&gt;0.5%).</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Karpenter</strong> integration reducing cluster scaling response time from 6 minutes to under 45 seconds.</span>
+                            </div>
+                        </div>
+
+                        <div class="project-impact font-mono">
+                            <span class="impact-stat"><i class="fas fa-arrow-down text-accent"></i> 99.99% Availability</span>
+                            <span class="impact-stat"><i class="fas fa-bolt text-warning"></i> 0 Downtime Deploys</span>
+                        </div>
+
+                        <div class="project-code-preview">
+                            <div class="code-title font-mono"><i class="fas fa-code"></i> argo-rollout-canary.yaml</div>
+                            <pre class="font-mono"><code>strategy:
+  canary:
+    analysis:
+      templates:
+      - templateName: http-success-rate
+      args:
+      - name: service-name
+        value: checkout-api
+    steps:
+    - setWeight: 20
+    - pause: {duration: 5m}
+    - setWeight: 50
+    - pause: {duration: 10m}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag tag-vault">HashiCorp Vault</span>
+                                <span class="tag tag-tf">Terraform</span>
+                                <span class="tag tag-sec">Zero-Trust</span>
+                                <span class="tag tag-aws">AWS IAM IRSA</span>
+                            </div>
+                            <span class="project-year font-mono">PROD ACTIVE</span>
+                        </div>
+
+                        <h3 class="project-title">Zero-Trust Secrets & Automated PKI Rotation Hub</h3>
+                        
+                        <p class="project-summary">
+                            Eliminated all hardcoded credentials and static secrets across cloud infrastructure using HashiCorp Vault with automated PKI and dynamic DB credentials.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Dynamic Database Credentials</strong>: Short-lived (1-hour TTL) PostgreSQL credentials generated on-demand.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Vault Agent Injector</strong> on Kubernetes injecting secrets into Pod memory without writing to disk.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Automated PKI Internal CA</strong>: Automated internal mTLS certificate issuance with Cert-Manager.</span>
+                            </div>
+                        </div>
+
+                        <div class="project-impact font-mono">
+                            <span class="impact-stat"><i class="fas fa-shield-alt text-success"></i> 0 Static Secrets</span>
+                            <span class="impact-stat"><i class="fas fa-sync text-accent"></i> 100% Auto-Rotated</span>
+                        </div>
+
+                        <div class="project-code-preview">
+                            <div class="code-title font-mono"><i class="fas fa-code"></i> vault_dynamic_postgres.tf</div>
+                            <pre class="font-mono"><code>resource "vault_database_secret_backend_role" "app_role" {
+  backend             = vault_mount.db.path
+  name                = "app-writer"
+  db_name             = vault_database_secret_backend_connection.postgres.name
+  creation_statements = [
+    "CREATE ROLE \"{{name}}\" WITH LOGIN PASSWORD '{{password}}' VALID UNTIL '{{expiration}}';",
+    "GRANT app_writer_role TO \"{{name}}\";"
+  ]
+  default_ttl = "3600"
+  max_ttl     = "86400"
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag tag-tf">Terraform</span>
+                                <span class="tag tag-opa">OPA / Conftest</span>
+                                <span class="tag tag-cloud">AWS Multi-Region</span>
+                                <span class="tag tag-actions">GitHub Actions</span>
+                            </div>
+                            <span class="project-year font-mono">PROD ACTIVE</span>
+                        </div>
+
+                        <h3 class="project-title">Enterprise Infrastructure as Code Framework & Drift Guard</h3>
+                        
+                        <p class="project-summary">
+                            Standardized multi-account AWS landing zone topology using modular Terraform, policy-as-code validation, and scheduled drift detection.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Reusable Tested Modules</strong> for VPC, Transit Gateway, EKS, RDS, S3, and Security Groups.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Policy-As-Code with OPA</strong>: Blocking public S3 buckets, unrestricted 0.0.0.0/0 ingress, and unencrypted EBS volumes.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Daily Automated Drift Detection</strong>: Alerts Slack if out-of-band manual changes occur in AWS.</span>
+                            </div>
+                        </div>
+
+                        <div class="project-impact font-mono">
+                            <span class="impact-stat"><i class="fas fa-shield-alt text-success"></i> 100% Policy Enforced</span>
+                            <span class="impact-stat"><i class="fas fa-clock text-accent"></i> 15m Provisioning</span>
+                        </div>
+
+                        <div class="project-code-preview">
+                            <div class="code-title font-mono"><i class="fas fa-code"></i> policy/s3_encryption.rego</div>
+                            <pre class="font-mono"><code>package terraform.analysis
+
+deny[msg] {
+  resource := input.resource_changes[_]
+  resource.type == "aws_s3_bucket"
+  not bucket_has_encryption(resource)
+  msg := sprintf("S3 bucket '%v' must have SSE-KMS encryption enabled", [resource.address])
+}</code></pre>
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <div class="project-header">
+                            <div class="project-tags">
+                                <span class="tag tag-obs">Prometheus</span>
+                                <span class="tag tag-obs">Grafana</span>
+                                <span class="tag tag-k8s">Kyverno</span>
+                                <span class="tag tag-sec">DevSecOps</span>
+                            </div>
+                            <span class="project-year font-mono">PROD ACTIVE</span>
+                        </div>
+
+                        <h3 class="project-title">End-to-End DevSecOps Pipeline & SLSA Supply Chain Security</h3>
+                        
+                        <p class="project-summary">
+                            Hardened software supply chain adhering to SLSA Level 3 principles: cryptographic SBOM generation, image signing, and runtime enforcement.
+                        </p>
+
+                        <div class="project-highlights">
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Trivy Vulnerability Gates</strong>: PR builds fail if CRITICAL or HIGH CVEs without fixed versions are detected.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Cosign Cryptographic Attestation</strong>: Images signed with keyless OIDC identities; unsigned images blocked by Kyverno.</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fas fa-check-circle text-success"></i>
+                                <span><strong>Syft SBOM Generation</strong>: Software Bill of Materials cataloged automatically for audit compliance.</span>
+                            </div>
+                        </div>
+
+                        <div class="project-impact font-mono">
+                            <span class="impact-stat"><i class="fas fa-check-double text-success"></i> SLSA Level 3</span>
+                            <span class="impact-stat"><i class="fas fa-bug text-danger"></i> 0 Unscanned Images</span>
+                        </div>
+
+                        <div class="project-code-preview">
+                            <div class="code-title font-mono"><i class="fas fa-code"></i> kyverno-verify-signature.yaml</div>
+                            <pre class="font-mono"><code>apiVersion: kyverno.io/v1
+kind: ClusterPolicy
+metadata:
+  name: check-image-signatures
+spec:
+  validationFailureAction: Enforce
+  rules:
+  - name: verify-cosign-signature
+    match:
+      resources:
+        kinds: ["Pod"]
+    verifyImages:
+    - imageReferences: ["ghcr.io/company/*"]
+      attestors:
+      - entries:
+        - keyless:
+            issuer: "https://token.actions.githubusercontent.com"</code></pre>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Terminal Simulator Section -->
+        <section id="terminal-section" class="section terminal-section">
+            <div class="container">
+                <div class="section-tag font-mono">05 // INTERACTIVE CLOUD SHELL</div>
+                <h2 class="section-title">Test Drive the DevOps Terminal</h2>
+                <p class="section-subtitle">
+                    Recruiter or Engineer? Try out real commands like <code class="code-inline">kubectl</code>, <code class="code-inline">terraform</code>, <code class="code-inline">vault</code>, or <code class="code-inline">help</code>.
+                </p>
+
+                <!-- Terminal Quick Command Suggestions -->
+                <div class="terminal-quick-pills font-mono">
+                    <span class="pill-title">Quick commands:</span>
+                    <button class="quick-cmd" data-cmd="help">help</button>
+                    <button class="quick-cmd" data-cmd="kubectl get pods -A">kubectl get pods</button>
+                    <button class="quick-cmd" data-cmd="terraform plan">terraform plan</button>
+                    <button class="quick-cmd" data-cmd="vault status">vault status</button>
+                    <button class="quick-cmd" data-cmd="cat resume.txt">cat resume.txt</button>
+                    <button class="quick-cmd" data-cmd="curl -s /metrics">curl /metrics</button>
+                    <button class="quick-cmd" data-cmd="whoami">whoami</button>
+                </div>
+
+                <!-- Terminal Window -->
+                <div class="terminal-window">
+                    <div class="terminal-topbar">
+                        <div class="terminal-dots">
+                            <span class="term-dot dot-red"></span>
+                            <span class="term-dot dot-yellow"></span>
+                            <span class="term-dot dot-green"></span>
+                        </div>
+                        <div class="terminal-title font-mono">
+                            <i class="fas fa-terminal text-muted"></i> ahmed@control-plane:~/infrastructure (bash)
+                        </div>
+                        <div class="terminal-actions">
+                            <button id="termClearBtn" title="Clear Terminal" class="term-btn font-mono"><i class="fas fa-trash-alt"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="terminal-body font-mono" id="terminalOutput">
+                        <div class="term-line term-welcome text-muted">
+Welcome to Ahmed Fathy's Cloud Terminal [DevOps Console v2.6.0]
+Host: ip-10-0-12-44.ec2.internal | Kernel: Linux 6.8.0-aws | Architecture: x86_64
+Type <span class="text-accent">'help'</span> to see available commands or click the buttons above.
+                        </div>
+                        <div class="term-line prompt-line">
+                            <span class="prompt-user text-success">ahmed@cloud-shell</span>:<span class="prompt-dir text-accent">~/infra</span>$ <span class="term-cmd">curl -s /greeting</span>
+                        </div>
+                        <div class="term-response text-slate-300">
+{
+  "engineer": "Ahmed Fathy",
+  "role": "Senior DevOps & Platform Engineer",
+  "focus": ["Kubernetes", "HashiCorp Stack", "GitOps", "Zero-Trust Security"],
+  "status": "Available for high-impact Platform & SRE engineering challenges"
+}
+                        </div>
+                    </div>
+
+                    <!-- Terminal Active Input Line -->
+                    <div class="terminal-input-bar font-mono">
+                        <span class="prompt-user text-success">ahmed@cloud-shell</span>:<span class="prompt-dir text-accent">~/infra</span>$&nbsp;
+                        <input type="text" id="terminalInput" class="term-input" autocomplete="off" spellcheck="false" placeholder="Type a command (try 'help' or 'kubectl get nodes')...">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Certifications & Credentials Section -->
+        <section id="certifications" class="section certs-section">
+            <div class="container">
+                <div class="section-tag font-mono">06 // VERIFIED CREDENTIALS</div>
+                <h2 class="section-title">Certifications & Competencies</h2>
+                <p class="section-subtitle">Industry-recognized validation in Cloud Architecture, Containers, and Infrastructure as Code.</p>
+
+                <div class="certs-grid">
+                    <div class="cert-card">
+                        <div class="cert-badge-icon badge-hashi">
+                            <i class="fas fa-cube"></i>
+                        </div>
+                        <div class="cert-details">
+                            <div class="cert-provider font-mono">HASHICORP</div>
+                            <h4>Terraform Associate (003)</h4>
+                            <p>Infrastructure as Code, state management, module design, workspaces, and provider orchestration.</p>
+                            <span class="cert-status verified font-mono"><i class="fas fa-check-circle"></i> Certified</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge-icon badge-hashi">
+                            <i class="fas fa-key"></i>
+                        </div>
+                        <div class="cert-details">
+                            <div class="cert-provider font-mono">HASHICORP</div>
+                            <h4>Vault Associate</h4>
+                            <p>Authentication methods, secret engines, tokens, policies, lease management, and PKI infrastructure.</p>
+                            <span class="cert-status verified font-mono"><i class="fas fa-check-circle"></i> Certified</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge-icon badge-k8s-cert">
+                            <i class="fas fa-dharmachakra"></i>
+                        </div>
+                        <div class="cert-details">
+                            <div class="cert-provider font-mono">LINUX FOUNDATION / CNCF</div>
+                            <h4>Certified Kubernetes Administrator (CKA)</h4>
+                            <p>Cluster architecture, installation, troubleshooting, workloads, networking, and storage.</p>
+                            <span class="cert-status verified font-mono"><i class="fas fa-check-circle"></i> Certified</span>
+                        </div>
+                    </div>
+
+                    <div class="cert-card">
+                        <div class="cert-badge-icon badge-aws-cert">
+                            <i class="fab fa-aws"></i>
+                        </div>
+                        <div class="cert-details">
+                            <div class="cert-provider font-mono">AMAZON WEB SERVICES</div>
+                            <h4>AWS Solutions Architect - Associate / Pro</h4>
+                            <p>High-availability VPC architectures, multi-region failover, resilience, security, and FinOps optimization.</p>
+                            <span class="cert-status verified font-mono"><i class="fas fa-check-circle"></i> Certified</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience & Career Timeline -->
+        <section class="section timeline-section">
+            <div class="container">
+                <div class="section-tag font-mono">07 // CAREER ROADMAP</div>
+                <h2 class="section-title">DevOps Experience & Engineering Track</h2>
+
+                <div class="timeline">
+                    <!-- Timeline Item 1 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-role">Senior DevOps & Cloud Platform Engineer</h3>
+                                    <div class="timeline-company text-accent">Enterprise Cloud Solutions</div>
+                                </div>
+                                <span class="timeline-date font-mono">2022 - PRESENT</span>
+                            </div>
+                            <ul class="timeline-list">
+                                <li>Spearheaded multi-tenant AWS EKS cluster infrastructure using Terraform, cutting cloud infrastructure spend by 42%.</li>
+                                <li>Architected end-to-end GitOps workflow with ArgoCD, driving deployment frequency from bi-weekly releases to multiple daily zero-downtime releases.</li>
+                                <li>Implemented HashiCorp Vault enterprise cluster for 150+ engineers, standardizing dynamic database credentials and automated PKI certificates.</li>
+                                <li>Authored custom Prometheus alerts and Grafana dashboards tracking golden signals (latency, traffic, errors, saturation).</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Timeline Item 2 -->
+                    <div class="timeline-item">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <div class="timeline-header">
+                                <div>
+                                    <h3 class="timeline-role">DevOps & Cloud Infrastructure Engineer</h3>
+                                    <div class="timeline-company text-purple">Global FinTech Systems</div>
+                                </div>
+                                <span class="timeline-date font-mono">2019 - 2022</span>
+                            </div>
+                            <ul class="timeline-list">
+                                <li>Engineered automated CI/CD pipelines with GitHub Actions and GitLab CI, reducing build & test turnaround times by 65%.</li>
+                                <li>Containerized legacy monolithic services into lightweight microservices using Docker and Helm charts.</li>
+                                <li>Integrated Trivy and SonarQube vulnerability scanning into git pre-merge checks, preventing 100+ critical security defects from reaching production.</li>
+                                <li>Maintained 99.99% availability for critical payment gateways with automated Disaster Recovery drill playbooks.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section contact-section">
+            <div class="container">
+                <div class="section-tag font-mono">08 // INITIATE CONNECTION</div>
+                <h2 class="section-title">Let's Build Something Resilient</h2>
+                <p class="section-subtitle">
+                    Seeking a Senior DevOps, SRE, or Platform Engineer who treats infrastructure as code and values reliability? Send a message or connect directly.
+                </p>
+
+                <div class="contact-grid">
+                    <!-- Contact Details Card -->
+                    <div class="contact-card">
+                        <h3>Direct Connection Details</h3>
+                        <p class="contact-intro">
+                            Whether you're scaling a high-traffic Kubernetes cluster, migrating to HashiCorp Vault, or establishing automated GitOps pipelines, I'm ready to help.
+                        </p>
+
+                        <div class="contact-links-list">
+                            <a href="mailto:ahmed.fathy@gmail.com" class="contact-link-item">
+                                <div class="contact-link-icon"><i class="fas fa-envelope text-accent"></i></div>
+                                <div>
+                                    <div class="contact-link-label font-mono">EMAIL</div>
+                                    <div class="contact-link-val">ahmed.fathy@gmail.com</div>
+                                </div>
+                            </a>
+
+                            <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                                <div class="contact-link-icon"><i class="fab fa-github text-white"></i></div>
+                                <div>
+                                    <div class="contact-link-label font-mono">GITHUB</div>
+                                    <div class="contact-link-val">github.com/ahmedfathy-devops</div>
+                                </div>
+                            </a>
+
+                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                                <div class="contact-link-icon"><i class="fab fa-linkedin text-accent"></i></div>
+                                <div>
+                                    <div class="contact-link-label font-mono">LINKEDIN</div>
+                                    <div class="contact-link-val">linkedin.com/in/ahmed-fathy-devops</div>
+                                </div>
+                            </a>
+
+                            <div class="contact-link-item">
+                                <div class="contact-link-icon"><i class="fas fa-map-marker-alt text-warning"></i></div>
+                                <div>
+                                    <div class="contact-link-label font-mono">LOCATION</div>
+                                    <div class="contact-link-val">Open to Remote (Global) & Relocation</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Resume Download Callout -->
+                        <div class="resume-download-box">
+                            <div class="resume-info">
+                                <i class="fas fa-file-pdf text-danger fa-2x"></i>
+                                <div>
+                                    <div class="font-mono text-sm text-white">Ahmed_Fathy_DevOps_Resume.pdf</div>
+                                    <div class="text-xs text-muted">Updated for 2026 // PDF Format</div>
+                                </div>
+                            </div>
+                            <a href="mailto:ahmed.fathy@gmail.com?subject=Resume%20Request%20-%20Ahmed%20Fathy" class="btn btn-sm btn-outline">
+                                <i class="fas fa-download"></i> Request Resume
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Contact Form -->
+                    <div class="contact-form-card">
+                        <h3>Send a Direct Dispatch</h3>
+                        <form id="contactForm" class="contact-form">
+                            <div class="form-group">
+                                <label for="contactName" class="font-mono">NAME / RECRUITER</label>
+                                <input type="text" id="contactName" required placeholder="e.g. Sarah Connor" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactEmail" class="font-mono">EMAIL ADDRESS</label>
+                                <input type="email" id="contactEmail" required placeholder="e.g. sarah@techcorp.io" class="form-input">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactSubject" class="font-mono">SUBJECT / SCOPE</label>
+                                <select id="contactSubject" class="form-input">
+                                    <option value="Senior DevOps Role Opportunity">Senior DevOps / SRE Role Opportunity</option>
+                                    <option value="Platform Engineering Consultation">Platform Engineering Consultation</option>
+                                    <option value="Kubernetes / HashiCorp Architecture">Kubernetes / HashiCorp Architecture</option>
+                                    <option value="Other Inquiries">General Discussion</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="contactMessage" class="font-mono">DISPATCH MESSAGE</label>
+                                <textarea id="contactMessage" rows="4" required placeholder="Tell me about your team, tech stack, and goals..." class="form-input"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block" id="submitFormBtn">
+                                <i class="fas fa-paper-plane"></i> Transmit Message
+                            </button>
+                            <div id="formFeedback" class="form-feedback font-mono"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container footer-content">
+            <div class="footer-left font-mono text-xs">
+                <div>&copy; 2026 Ahmed Fathy. Built with infrastructure excellence in mind.</div>
+                <div class="text-muted mt-1">Hosted with immutable Nginx container &amp; GitOps CI/CD</div>
+            </div>
+
+            <div class="footer-tags font-mono text-xs">
+                <span class="foot-tag"><i class="fas fa-shield-alt text-success"></i> 0 Vulnerabilities</span>
+                <span class="foot-tag"><i class="fas fa-code-commit text-accent"></i> Commit: <span class="text-white">a4f9e12</span></span>
+                <span class="foot-tag"><i class="fas fa-clock text-warning"></i> Uptime: 99.999%</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/terminal.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

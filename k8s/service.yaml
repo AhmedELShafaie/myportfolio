@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: devops-portfolio-svc
+  namespace: portfolio
+  labels:
+    app.kubernetes.io/name: devops-portfolio
+spec:
+  type: ClusterIP
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+      protocol: TCP
+  selector:
+    app.kubernetes.io/name: devops-portfolio

@@ -1,0 +1,25 @@
+# Operating System Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editor & IDE files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Terraform local files
+.terraform/
+*.tfstate
+*.tfstate.*
+crash.log
+*.tfvars
+*.tfvars.json
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Local logs
+*.log
