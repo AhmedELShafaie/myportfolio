@@ -86,7 +86,9 @@
     --toggle-thumb-glow: rgba(56, 189, 248, 0.4);
 
     --gradient-title: linear-gradient(135deg, #38bdf8 0%, #818cf8 50%, #c084fc 100%);
-    --gradient-btn: linear-gradient(135deg, #0284c7, #4f46e5);
+    --gradient-btn: linear-gradient(135deg, #0369a1, #4338ca);
+    --accent-hover-bg: #38bdf8;
+    --accent-hover-fg: var(--bg-primary);
 }
 
 [data-theme="light"] {
@@ -158,43 +160,9 @@
     --toggle-thumb-glow: rgba(245, 158, 11, 0.4);
 
     --gradient-title: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
-    --gradient-btn: linear-gradient(135deg, #0284c7, #4f46e5);
-}
-
-    --grid-line: rgba(15, 23, 42, 0.04);
-    --glow-opacity: 0.14;
-    --card-shadow: 0 10px 25px -3px rgba(15, 23, 42, 0.07), 0 4px 6px -4px rgba(15, 23, 42, 0.03);
-    --card-shadow-hover: 0 20px 30px -8px rgba(15, 23, 42, 0.12), 0 8px 10px -6px rgba(15, 23, 42, 0.06);
-
-    --window-header-bg: rgba(241, 245, 249, 0.95);
-    --topo-layer-bg: #ffffff;
-    --code-block-bg: #0f172a;
-    --code-header-bg: #1e293b;
-    --code-text: #e2e8f0;
-    --tab-bg: #ffffff;
-    --quick-cmd-bg: #ffffff;
-    --input-bg: #ffffff;
-    --input-border: rgba(148, 163, 184, 0.5);
-    --input-text: #0f172a;
-    --box-subtle-bg: rgba(15, 23, 42, 0.03);
-    --icon-box-bg: rgba(15, 23, 42, 0.04);
-    --timeline-date-bg: rgba(15, 23, 42, 0.06);
-    --foot-tag-bg: rgba(15, 23, 42, 0.04);
-    --status-available-bg: rgba(2, 132, 199, 0.08);
-    --hover-subtle: rgba(15, 23, 42, 0.04);
-
-    --btn-secondary-bg: #ffffff;
-    --btn-secondary-color: var(--accent);
-    --btn-secondary-hover-bg: rgba(2, 132, 199, 0.06);
-    --btn-secondary-hover-color: var(--accent);
-
-    --toggle-track-bg: #e2e8f0;
-    --toggle-track-border: rgba(148, 163, 184, 0.5);
-    --toggle-thumb-bg: #f59e0b;
-    --toggle-thumb-glow: rgba(245, 158, 11, 0.4);
-
-    --gradient-title: linear-gradient(135deg, #0284c7 0%, #4f46e5 50%, #9333ea 100%);
-    --gradient-btn: linear-gradient(135deg, #0284c7, #4f46e5);
+    --gradient-btn: linear-gradient(135deg, #0369a1, #4338ca);
+    --accent-hover-bg: #0369a1;
+    --accent-hover-fg: #ffffff;
 }
 
 /* Base & Reset */
