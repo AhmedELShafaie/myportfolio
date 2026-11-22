@@ -37,7 +37,7 @@ spec:
           type: RuntimeDefault
       containers:
         - name: portfolio-web
-          image: ghcr.io/AhmedELShafaie/myportfolio:latest
+          image: ghcr.io/ahmedelshafaie/myportfolio:latest
           imagePullPolicy: IfNotPresent
           ports:
             - name: http
