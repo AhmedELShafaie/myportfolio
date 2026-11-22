@@ -15,7 +15,7 @@ FROM nginxinc/nginx-unprivileged:1.26-alpine
 LABEL maintainer="Ahmed Fathy <ahmed.fathy@gmail.com>"
 LABEL org.opencontainers.image.title="Ahmed Fathy DevOps Portfolio"
 LABEL org.opencontainers.image.description="Cloud Platform & DevOps SRE Portfolio Web Application"
-LABEL org.opencontainers.image.source="https://github.com/ahmedfathy-devops/myportfolio"
+LABEL org.opencontainers.image.source="https://github.com/AhmedELShafaie/myportfolio"
 
 # Copy custom security-hardened nginx configuration
 COPY --chown=101:101 nginx.conf /etc/nginx/nginx.conf

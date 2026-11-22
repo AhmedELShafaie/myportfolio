@@ -224,7 +224,7 @@ CERTIFICATIONS:
             return `
 Email:    <a href="mailto:ahmed.fathy@gmail.com" class="text-accent">ahmed.fathy@gmail.com</a>
 LinkedIn: <a href="https://linkedin.com/in/ahmed-fathy-devops" target="_blank" class="text-accent">linkedin.com/in/ahmed-fathy-devops</a>
-GitHub:   <a href="https://github.com/ahmedfathy-devops" target="_blank" class="text-accent">github.com/ahmedfathy-devops</a>
+GitHub:   <a href="https://github.com/AhmedELShafaie" target="_blank" class="text-accent">github.com/AhmedELShafaie</a>
 `;
         },
 
