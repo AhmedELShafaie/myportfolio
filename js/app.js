@@ -4,6 +4,62 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+    // 0. Theme Controller: Light and Dark Mode with LocalStorage & OS Preference
+    const themeToggleBtn = document.getElementById('themeToggleBtn');
+
+    function applyTheme(theme, save = true) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (save) {
+            try {
+                localStorage.setItem('theme', theme);
+            } catch (err) {
+                console.warn('LocalStorage unavailable:', err);
+            }
+        }
+        if (themeToggleBtn) {
+            const isLight = theme === 'light';
+            themeToggleBtn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+            themeToggleBtn.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+        }
+        window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') || 'dark';
+        const next = current === 'dark' ? 'light' : 'dark';
+        applyTheme(next, true);
+    }
+
+    // Expose helpers globally so terminal simulator and external triggers can toggle theme
+    window.setPortfolioTheme = function(theme) {
+        if (theme === 'light' || theme === 'dark') {
+            applyTheme(theme, true);
+        }
+    };
+
+    window.togglePortfolioTheme = function() {
+        toggleTheme();
+    };
+
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', toggleTheme);
+    }
+
+    // Auto-update theme if system preference changes and user hasn't explicitly set a preference
+    if (window.matchMedia) {
+        const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+        mediaQuery.addEventListener('change', (e) => {
+            const saved = localStorage.getItem('theme');
+            if (!saved) {
+                applyTheme(e.matches ? 'dark' : 'light', false);
+            }
+        });
+    }
+
+    // Sync button state on initial load
+    const activeTheme = document.documentElement.getAttribute('data-theme') || 'dark';
+    applyTheme(activeTheme, false);
+
     // 1. Mobile Menu Toggle
     const mobileMenuBtn = document.getElementById('mobileMenuBtn');
     const navMenu = document.getElementById('navMenu');

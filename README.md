@@ -2,19 +2,26 @@
 
 A production-grade, highly responsive, cyber-cloud themed portfolio website tailored specifically for a **DevOps, SRE, and Cloud Platform Engineer**. 
 
-Features an authentic dark-mode UI, live interactive DevOps CLI terminal simulator (`kubectl`, `terraform`, `vault`, `curl`), end-to-end CI/CD and GitOps interactive architecture visualizer, verified credentials, and real-world production case studies.
+Features an authentic dark-mode and crisp light-mode UI with instant theme switching, system OS auto-detection and persistence, live interactive DevOps CLI terminal simulator (`kubectl`, `terraform`, `vault`, `curl`, `theme`), end-to-end CI/CD and GitOps interactive architecture visualizer, verified credentials, and real-world production case studies.
 
 ---
 
 ## 🛠️ Tech Stack & Features
 
-- **Frontend:** Semantic HTML5, Modern CSS3 with CSS variables & Glassmorphism, Vanilla JS ES6+.
+- **Frontend:** Semantic HTML5, Modern CSS3 with CSS variables (Dark/Light themes) & Glassmorphism, Vanilla JS ES6+.
+- **Light & Dark Theme System:**
+  - Modern toggle switch in navigation header with smooth sliding thumb and animated sun/moon indicators.
+  - CLI integration: Toggle or set themes directly inside the terminal (`theme light`, `theme dark`, `theme toggle`).
+  - `localStorage` theme state persistence across browser sessions.
+  - Automatic `prefers-color-scheme` OS detection with real-time system change listening.
+  - Zero-FOUC (Flash of Unstyled Content) synchronous `<head>` bootstrapper.
 - **Interactive Terminal:** Custom in-browser CLI terminal with tab autocomplete, command history (Arrow Up/Down), and simulation for:
   - `kubectl get nodes` / `kubectl get pods -A` / `kubectl cluster-info`
   - `terraform plan` / `terraform apply`
   - `vault status` (HashiCorp Vault cluster status)
   - `curl /metrics` (Prometheus exposition format)
   - `cat resume.txt` & `whoami`
+  - `theme [light|dark|toggle]` (dynamic UI theme controller)
 - **Interactive Pipeline Visualizer:** 5-phase interactive CI/CD & GitOps architecture walk-through (Linting -> Security Gates -> Multi-Stage Build & Cosign -> ArgoCD Sync -> Telemetry).
 - **Containerization:** Multi-stage unprivileged `nginxinc/nginx-unprivileged:1.26-alpine` container running on non-root UID `101`.
 - **Infrastructure as Code (IaC):**
