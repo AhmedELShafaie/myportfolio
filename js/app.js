@@ -7,19 +7,36 @@ document.addEventListener('DOMContentLoaded', () => {
     // 0. Theme Controller: Light and Dark Mode with LocalStorage & OS Preference
     const themeToggleBtn = document.getElementById('themeToggleBtn');
 
+    function getSavedTheme() {
+        try {
+            return localStorage.getItem('theme');
+        } catch (err) {
+            return null;
+        }
+    }
+
+    function setSavedTheme(theme) {
+        try {
+            if (theme) {
+                localStorage.setItem('theme', theme);
+            } else {
+                localStorage.removeItem('theme');
+            }
+        } catch (err) {
+            console.warn('LocalStorage unavailable:', err);
+        }
+    }
+
     function applyTheme(theme, save = true) {
         document.documentElement.setAttribute('data-theme', theme);
         if (save) {
-            try {
-                localStorage.setItem('theme', theme);
-            } catch (err) {
-                console.warn('LocalStorage unavailable:', err);
-            }
+            setSavedTheme(theme);
         }
         if (themeToggleBtn) {
-            const isLight = theme === 'light';
-            themeToggleBtn.setAttribute('aria-label', isLight ? 'Switch to dark mode' : 'Switch to light mode');
-            themeToggleBtn.setAttribute('title', isLight ? 'Switch to dark mode' : 'Switch to light mode');
+            const isDark = theme === 'dark';
+            themeToggleBtn.setAttribute('aria-checked', isDark ? 'true' : 'false');
+            themeToggleBtn.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+            themeToggleBtn.setAttribute('title', isDark ? 'Switch to light mode' : 'Switch to dark mode');
         }
         window.dispatchEvent(new CustomEvent('themeChanged', { detail: { theme } }));
     }
@@ -30,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         applyTheme(next, true);
     }
 
-    // Expose helpers globally so terminal simulator and external triggers can toggle theme
+    // Public JavaScript API (documented in README.md)
     window.setPortfolioTheme = function(theme) {
         if (theme === 'light' || theme === 'dark') {
             applyTheme(theme, true);
@@ -41,6 +58,12 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleTheme();
     };
 
+    window.resetPortfolioThemeToAuto = function() {
+        setSavedTheme(null);
+        const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(prefersDark ? 'dark' : 'light', false);
+    };
+
     if (themeToggleBtn) {
         themeToggleBtn.addEventListener('click', toggleTheme);
     }
@@ -48,12 +71,17 @@ document.addEventListener('DOMContentLoaded', () => {
     // Auto-update theme if system preference changes and user hasn't explicitly set a preference
     if (window.matchMedia) {
         const mediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
-        mediaQuery.addEventListener('change', (e) => {
-            const saved = localStorage.getItem('theme');
+        const handleMediaChange = (e) => {
+            const saved = getSavedTheme();
             if (!saved) {
                 applyTheme(e.matches ? 'dark' : 'light', false);
             }
-        });
+        };
+        if (mediaQuery.addEventListener) {
+            mediaQuery.addEventListener('change', handleMediaChange);
+        } else if (mediaQuery.addListener) {
+            mediaQuery.addListener(handleMediaChange);
+        }
     }
 
     // Sync button state on initial load

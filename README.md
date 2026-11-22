@@ -11,17 +11,23 @@ Features an authentic dark-mode and crisp light-mode UI with instant theme switc
 - **Frontend:** Semantic HTML5, Modern CSS3 with CSS variables (Dark/Light themes) & Glassmorphism, Vanilla JS ES6+.
 - **Light & Dark Theme System:**
   - Modern toggle switch in navigation header with smooth sliding thumb and animated sun/moon indicators.
-  - CLI integration: Toggle or set themes directly inside the terminal (`theme light`, `theme dark`, `theme toggle`).
-  - `localStorage` theme state persistence across browser sessions.
+  - CLI integration: Toggle or set themes directly inside the terminal (`theme light`, `theme dark`, `theme toggle`, `theme auto`).
+  - `localStorage` theme state persistence across browser sessions with safe fallback handling.
   - Automatic `prefers-color-scheme` OS detection with real-time system change listening.
   - Zero-FOUC (Flash of Unstyled Content) synchronous `<head>` bootstrapper.
+  - Accessible design: `role="switch"`, `aria-checked`, and `@media (prefers-reduced-motion)`.
+  - JavaScript Public API:
+    - `window.setPortfolioTheme('light' | 'dark')` — Programmatically set the theme.
+    - `window.togglePortfolioTheme()` — Toggle between light and dark modes.
+    - `window.resetPortfolioThemeToAuto()` — Remove local override and sync with OS theme.
+    - `themeChanged` window event dispatched on theme updates.
 - **Interactive Terminal:** Custom in-browser CLI terminal with tab autocomplete, command history (Arrow Up/Down), and simulation for:
   - `kubectl get nodes` / `kubectl get pods -A` / `kubectl cluster-info`
   - `terraform plan` / `terraform apply`
   - `vault status` (HashiCorp Vault cluster status)
   - `curl /metrics` (Prometheus exposition format)
   - `cat resume.txt` & `whoami`
-  - `theme [light|dark|toggle]` (dynamic UI theme controller)
+  - `theme [light|dark|toggle|auto]` (dynamic UI theme controller)
 - **Interactive Pipeline Visualizer:** 5-phase interactive CI/CD & GitOps architecture walk-through (Linting -> Security Gates -> Multi-Stage Build & Cosign -> ArgoCD Sync -> Telemetry).
 - **Containerization:** Multi-stage unprivileged `nginxinc/nginx-unprivileged:1.26-alpine` container running on non-root UID `101`.
 - **Infrastructure as Code (IaC):**

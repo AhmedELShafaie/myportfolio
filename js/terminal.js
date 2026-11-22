@@ -29,7 +29,7 @@ Available commands:
   <span class="text-accent">cat resume.txt</span>       - View plaintext curriculum vitae
   <span class="text-accent">uptime</span>              - Display platform uptime and cluster load average
   <span class="text-accent">contact</span>             - Reach out to Ahmed Fathy
-  <span class="text-accent">theme [light|dark|toggle]</span> - Switch UI theme mode (Cyber Dark / Crisp Light)
+  <span class="text-accent">theme [light|dark|toggle|auto]</span> - Switch UI theme mode or sync with OS
   <span class="text-accent">clear</span>               - Clear the terminal screen
 `;
         },
@@ -239,37 +239,39 @@ GitHub:   <a href="https://github.com/AhmedELShafaie" target="_blank" class="tex
             const currentTheme = document.documentElement.getAttribute('data-theme') || 'dark';
 
             if (!sub || sub === 'status') {
-                return `Current UI Theme: <strong class="text-accent">${currentTheme.toUpperCase()}</strong>\nUsage: <span class="text-accent">theme light</span> | <span class="text-accent">theme dark</span> | <span class="text-accent">theme toggle</span>`;
+                let saved = null;
+                try { saved = localStorage.getItem('theme'); } catch (e) {}
+                const modeStr = saved ? 'manually pinned' : 'synced with OS preference';
+                return `Current UI Theme: <strong class="text-accent">${currentTheme.toUpperCase()}</strong> (${modeStr})\nUsage: <span class="text-accent">theme light</span> | <span class="text-accent">theme dark</span> | <span class="text-accent">theme toggle</span> | <span class="text-accent">theme auto</span>`;
             }
 
-            if (sub === 'light') {
-                if (typeof window.setPortfolioTheme === 'function') {
-                    window.setPortfolioTheme('light');
+            if (sub === 'auto') {
+                if (typeof window.resetPortfolioThemeToAuto === 'function') {
+                    window.resetPortfolioThemeToAuto();
                 } else {
-                    document.documentElement.setAttribute('data-theme', 'light');
-                    localStorage.setItem('theme', 'light');
+                    try { localStorage.removeItem('theme'); } catch (e) {}
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
                 }
-                return `[<span class="text-success">OK</span>] Platform theme transitioned to <strong class="text-white">LIGHT</strong> mode.`;
-            } else if (sub === 'dark') {
-                if (typeof window.setPortfolioTheme === 'function') {
-                    window.setPortfolioTheme('dark');
-                } else {
-                    document.documentElement.setAttribute('data-theme', 'dark');
-                    localStorage.setItem('theme', 'dark');
-                }
-                return `[<span class="text-success">OK</span>] Platform theme transitioned to <strong class="text-accent">DARK (Cyber-Ops)</strong> mode.`;
-            } else if (sub === 'toggle') {
-                const next = currentTheme === 'dark' ? 'light' : 'dark';
-                if (typeof window.setPortfolioTheme === 'function') {
-                    window.setPortfolioTheme(next);
-                } else {
-                    document.documentElement.setAttribute('data-theme', next);
-                    localStorage.setItem('theme', next);
-                }
-                return `[<span class="text-success">OK</span>] Platform theme toggled to <strong class="text-accent">${next.toUpperCase()}</strong> mode.`;
-            } else {
-                return `<span class="text-danger">Invalid option '${escapeHtml(sub)}'</span>. Try: <span class="text-accent">'theme light'</span>, <span class="text-accent">'theme dark'</span>, or <span class="text-accent">'theme toggle'</span>.`;
+                const active = document.documentElement.getAttribute('data-theme') || 'dark';
+                return `[<span class="text-success">OK</span>] Theme preference reset to <strong class="text-accent">AUTO</strong> (synced with OS: ${active.toUpperCase()}).`;
             }
+
+            const next = sub === 'toggle' ? (currentTheme === 'dark' ? 'light' : 'dark')
+                       : (sub === 'light' || sub === 'dark') ? sub : null;
+
+            if (!next) {
+                return `<span class="text-danger">Invalid option '${escapeHtml(sub)}'</span>. Try: <span class="text-accent">'theme light'</span>, <span class="text-accent">'theme dark'</span>, <span class="text-accent">'theme toggle'</span>, or <span class="text-accent">'theme auto'</span>.`;
+            }
+
+            if (typeof window.setPortfolioTheme === 'function') {
+                window.setPortfolioTheme(next);
+            } else {
+                document.documentElement.setAttribute('data-theme', next);
+                try { localStorage.setItem('theme', next); } catch (e) {}
+            }
+
+            return `[<span class="text-success">OK</span>] Platform theme transitioned to <strong class="text-accent">${next.toUpperCase()}</strong> mode.`;
         },
 
         sudo: () => {
