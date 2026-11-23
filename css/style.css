@@ -1865,6 +1865,91 @@ select.form-input option {
     .status-right {
         display: none;
     }
+
+    .mobile-toggle {
+        padding: 0.7rem 0.6rem;
+        min-width: 44px;
+        min-height: 44px;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .nav-links .nav-link,
+    .nav-links .nav-btn {
+        padding-top: 0.4rem;
+        padding-bottom: 0.4rem;
+    }
+}
+
+/* Small phones */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .section {
+        padding: 3.5rem 0;
+    }
+
+    .hero-section {
+        padding: 4rem 0 2.5rem;
+    }
+
+    .hero-container {
+        gap: 2rem;
+    }
+
+    .hero-desc {
+        font-size: 1rem;
+    }
+
+    .hero-actions .btn {
+        flex: 1 1 100%;
+        justify-content: center;
+    }
+
+    .pipeline-stepper,
+    .terminal-body,
+    .pipe-code-wrapper pre {
+        padding: 1rem;
+    }
+
+    .pipe-code-wrapper pre {
+        font-size: 0.72rem;
+    }
+
+    .pipe-code-header {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+    }
+
+    .terminal-topbar {
+        padding: 0.6rem 0.9rem;
+    }
+
+    .terminal-title {
+        font-size: 0.7rem;
+        min-width: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
+    .terminal-body {
+        min-height: 220px;
+        max-height: 360px;
+        font-size: 0.8rem;
+    }
+
+    .terminal-input-bar {
+        padding: 0.6rem 0.9rem;
+    }
+
+    /* 16px prevents iOS Safari zooming the page on focus */
+    .term-input {
+        font-size: 16px;
+        min-width: 0;
+    }
 }
 
 /* Keyboard focus ring */
