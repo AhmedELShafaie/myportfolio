@@ -94,13 +94,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (mobileMenuBtn && navMenu) {
         mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const open = navMenu.classList.toggle('active');
+            mobileMenuBtn.setAttribute('aria-expanded', String(open));
         });
 
         // Close mobile menu on clicking any navigation link
         navMenu.querySelectorAll('.nav-link, .nav-btn').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
+                mobileMenuBtn.setAttribute('aria-expanded', 'false');
             });
         });
     }
