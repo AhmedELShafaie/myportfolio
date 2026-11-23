@@ -26,9 +26,33 @@
 
     <!-- Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
+
+    <!-- Theme Initialization Script (Prevents FOUC) -->
+    <script>
+        (function () {
+            try {
+                const saved = localStorage.getItem('theme');
+                if (saved === 'light' || saved === 'dark') {
+                    document.documentElement.setAttribute('data-theme', saved);
+                } else {
+                    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+                    document.documentElement.setAttribute('data-theme', prefersDark ? 'dark' : 'light');
+                }
+            } catch (e) {
+                document.documentElement.setAttribute('data-theme', 'dark');
+            }
+        })();
+    </script>
+    <noscript>
+        <style>
+            .theme-toggle-btn {
+                display: none !important;
+            }
+        </style>
+    </noscript>
 </head>
 
-<body class="bg-dark text-slate-200">
+<body>
     <!-- Background Grid Effect & Cyber Glows -->
     <div class="cloud-grid-bg"></div>
     <div class="ambient-glow glow-1"></div>
@@ -77,11 +101,21 @@
                 <a href="#contact" class="nav-btn">Get In Touch</a>
             </nav>
 
-            <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation">
-                <span></span>
-                <span></span>
-                <span></span>
-            </button>
+            <div class="nav-extra">
+                <!-- Theme Mode Toggle -->
+                <button type="button" class="theme-toggle-btn" id="themeToggleBtn" role="switch" aria-checked="true"
+                    aria-label="Switch to light mode" title="Switch between Dark &amp; Light mode">
+                    <span class="theme-toggle-thumb"></span>
+                    <i class="fas fa-sun theme-sun" aria-hidden="true"></i>
+                    <i class="fas fa-moon theme-moon" aria-hidden="true"></i>
+                </button>
+
+                <button class="mobile-toggle" id="mobileMenuBtn" aria-label="Toggle navigation">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
         </div>
     </header>
 
@@ -807,6 +841,7 @@ spec:
                     <button class="quick-cmd" data-cmd="cat resume.txt">cat resume.txt</button>
                     <button class="quick-cmd" data-cmd="curl -s /metrics">curl /metrics</button>
                     <button class="quick-cmd" data-cmd="whoami">whoami</button>
+                    <button class="quick-cmd" data-cmd="theme toggle">theme toggle</button>
                 </div>
 
                 <!-- Terminal Window -->
