@@ -1,15 +1,17 @@
 # CLAUDE.md
 
+This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+
 Static DevOps/SRE portfolio site for Ahmed Fathy. No build step, no package manager: plain HTML, CSS and vanilla JS served by unprivileged Nginx, with Docker, Kubernetes and Terraform deployment configs alongside.
 
 ## Layout
 
 - `index.html` (whole site, with an inline `<head>` script that sets `data-theme` before paint), `css/style.css`, `js/app.js` (theme, pipeline stepper, skills filter, contact form), `js/terminal.js` (simulated CLI).
-- `nginx.conf`, `Dockerfile`, `docker-compose.yml`, `k8s/` (Kustomize), `terraform/` (S3 + CloudFront OAC), `.github/workflows/ci-cd.yml`.
+- `nginx.conf`, `Dockerfile`, `docker-compose.yml`, `k8s/` (Kustomize), `terraform/` (S3 + CloudFront OAC), `.github/workflows/ci-cd.yml` (image build/GHCR) and `pages.yml` (GitHub Pages deploy of the static files on push to `main`).
 
 ## Commands
 
-- `make help` lists targets. Main ones: `make docker-run` (serves on http://localhost:8080), `make k8s-dry-run`, `make tf-plan`.
+- `make help` lists targets. Main ones: `make docker-run` (serves on http://localhost:8080), `make k8s-dry-run`, `make tf-plan`, `make up`/`make down` (docker-compose).
 - Quick UI work: open `index.html` directly or run `python -m http.server`.
 - `make lint` only checks that files exist; it is not a real HTML/CSS linter. There is no test suite, so verify UI changes in a browser in both themes at desktop and mobile widths.
 
