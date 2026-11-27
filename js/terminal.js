@@ -158,7 +158,8 @@ HA Mode                  <span class="text-accent">active</span>
         },
 
         curl: (args) => {
-            const target = args[0] || '';
+            // Skip flags such as -s so `curl -s /metrics` resolves to the path
+            const target = args.find(a => !a.startsWith('-')) || '';
             if (target.includes('metrics')) {
                 return `
 # HELP http_requests_total Total number of HTTP requests made.
@@ -213,7 +214,7 @@ CERTIFICATIONS:
 • AWS Certified Solutions Architect
 `;
             } else {
-                return `cat: ${file}: No such file. Try 'cat resume.txt'`;
+                return `cat: ${escapeHtml(file)}: No such file. Try 'cat resume.txt'`;
             }
         },
 
@@ -224,8 +225,8 @@ CERTIFICATIONS:
         contact: () => {
             return `
 Email:    <a href="mailto:ahmed.fathy@gmail.com" class="text-accent">ahmed.fathy@gmail.com</a>
-LinkedIn: <a href="https://linkedin.com/in/ahmed-fathy-devops" target="_blank" class="text-accent">linkedin.com/in/ahmed-fathy-devops</a>
-GitHub:   <a href="https://github.com/AhmedELShafaie" target="_blank" class="text-accent">github.com/AhmedELShafaie</a>
+LinkedIn: <a href="https://linkedin.com/in/ahmed-fathy-devops" target="_blank" rel="noopener noreferrer" class="text-accent">linkedin.com/in/ahmed-fathy-devops</a>
+GitHub:   <a href="https://github.com/AhmedELShafaie" target="_blank" rel="noopener noreferrer" class="text-accent">github.com/AhmedELShafaie</a>
 `;
         },
 
@@ -298,7 +299,8 @@ GitHub:   <a href="https://github.com/AhmedELShafaie" target="_blank" class="tex
         const cmdArgs = parts.slice(1);
 
         let outputText = '';
-        if (commands[cmdName]) {
+        // Own keys only: `constructor` / `__proto__` must not resolve as commands
+        if (Object.prototype.hasOwnProperty.call(commands, cmdName)) {
             outputText = commands[cmdName](cmdArgs);
         } else {
             outputText = `<span class="text-danger">command not found: ${escapeHtml(cmdName)}</span>. Type <span class="text-accent">'help'</span> for a list of commands.`;
