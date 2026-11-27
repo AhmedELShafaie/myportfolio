@@ -87,8 +87,7 @@
 
     --gradient-title: linear-gradient(135deg, #c7d2fe 0%, #818cf8 100%);
     --gradient-btn: #4f46e5;
-    --accent-hover-bg: #818cf8;
-    --accent-hover-fg: var(--bg-primary);
+    --btn-hover-bg: #4338ca;
 }
 
 [data-theme="light"] {
@@ -161,8 +160,7 @@
 
     --gradient-title: linear-gradient(135deg, #4338ca 0%, #4f46e5 100%);
     --gradient-btn: #4f46e5;
-    --accent-hover-bg: #4338ca;
-    --accent-hover-fg: #ffffff;
+    --btn-hover-bg: #4338ca;
 }
 
 /* Base & Reset */
@@ -456,7 +454,7 @@ body {
 }
 
 .nav-btn:hover {
-    background: #4338ca;
+    background: var(--btn-hover-bg);
     transform: translateY(-1px);
     box-shadow: var(--card-shadow-hover);
 }
@@ -647,7 +645,7 @@ body {
 }
 
 .btn-primary:hover {
-    background: #4338ca;
+    background: var(--btn-hover-bg);
     transform: translateY(-1px);
     box-shadow: var(--card-shadow-hover);
 }
@@ -1216,8 +1214,7 @@ body {
 }
 
 .tag-k8s { background: var(--accent-glow); color: var(--accent); }
-.tag-gitops { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
-.tag-aws { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
+.tag-gitops, .tag-aws { background: rgba(245, 158, 11, 0.15); color: var(--warning); }
 .tag-mesh { background: var(--accent-glow); color: var(--purple); }
 .tag-vault { background: rgba(16, 185, 129, 0.15); color: var(--success); }
 .tag-tf { background: rgba(168, 85, 247, 0.15); color: var(--purple-badge); }
@@ -1495,22 +1492,10 @@ body {
     flex-shrink: 0;
 }
 
-.badge-hashi {
-    background: var(--accent-glow);
-    color: var(--purple);
-    border: 1px solid var(--border-purple);
-}
-
 .badge-k8s-cert {
     background: var(--accent-glow);
     color: var(--accent);
     border: 1px solid var(--border-accent);
-}
-
-.badge-aws-cert {
-    background: rgba(245, 158, 11, 0.15);
-    color: var(--warning);
-    border: 1px solid rgba(245, 158, 11, 0.3);
 }
 
 .cert-provider {
