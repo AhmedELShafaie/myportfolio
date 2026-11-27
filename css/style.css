@@ -200,10 +200,7 @@ body {
 /* Background Ambient Glows & Grid */
 .cloud-grid-bg {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    inset: 0;
     background-size: 50px 50px;
     background-image: 
         linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
@@ -216,7 +213,7 @@ body {
 .ambient-glow {
     position: fixed;
     border-radius: 50%;
-    filter: blur(120px);
+    /* Radial gradients already fade out; a 120px blur only added GPU cost on mobile */
     pointer-events: none;
     z-index: -1;
     opacity: var(--glow-opacity);
