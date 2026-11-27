@@ -112,23 +112,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const toolCards = document.querySelectorAll('.tool-card');
 
     toolTabs.forEach(tab => {
+        tab.setAttribute('aria-pressed', tab.classList.contains('active') ? 'true' : 'false');
         tab.addEventListener('click', () => {
-            toolTabs.forEach(t => t.classList.remove('active'));
+            toolTabs.forEach(t => {
+                t.classList.remove('active');
+                t.setAttribute('aria-pressed', 'false');
+            });
             tab.classList.add('active');
+            tab.setAttribute('aria-pressed', 'true');
 
             const filter = tab.getAttribute('data-filter');
 
             toolCards.forEach(card => {
-                if (filter === 'all') {
-                    card.style.display = 'block';
-                } else {
-                    const categories = card.getAttribute('data-category').split(' ');
-                    if (categories.includes(filter)) {
-                        card.style.display = 'block';
-                    } else {
-                        card.style.display = 'none';
-                    }
-                }
+                const categories = (card.getAttribute('data-category') || '').split(' ');
+                card.style.display = (filter === 'all' || categories.includes(filter)) ? 'block' : 'none';
             });
         });
     });
@@ -282,10 +279,19 @@ spec:
         `;
     }
 
+    if (pipelineDetailBox) {
+        pipelineDetailBox.setAttribute('aria-live', 'polite');
+    }
+
     stepNodes.forEach((node, idx) => {
+        node.setAttribute('aria-pressed', node.classList.contains('active') ? 'true' : 'false');
         node.addEventListener('click', () => {
-            stepNodes.forEach(n => n.classList.remove('active'));
+            stepNodes.forEach(n => {
+                n.classList.remove('active');
+                n.setAttribute('aria-pressed', 'false');
+            });
             node.classList.add('active');
+            node.setAttribute('aria-pressed', 'true');
             renderPipelineStep(idx);
         });
     });
