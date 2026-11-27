@@ -122,9 +122,9 @@
     --purple: #4f46e5;         /* Indigo 500 */
     --purple-glow: rgba(79, 70, 229, 0.12);
     --purple-badge: #4338ca;   /* Purple 600 - high contrast against light */
-    --success: #059669;        /* Emerald 600 */
-    --warning: #d97706;        /* Amber 600 */
-    --danger: #dc2626;         /* Red 600 */
+    --success: #047857;        /* Emerald 700 - AA on white and tints */
+    --warning: #92400e;        /* Amber 800 - AA on white and tints */
+    --danger: #b91c1c;         /* Red 700 - AA on white and tints */
 
     --grid-line: rgba(9, 9, 11, 0.03);
     --glow-opacity: 0.07;
@@ -172,7 +172,14 @@
     padding: 0;
 }
 
+:root {
+    --status-bar-h: 29px;
+    --header-h: 70px;
+}
+
 html {
+    /* Keep anchor targets clear of the two sticky bars */
+    scroll-padding-top: calc(var(--status-bar-h) + var(--header-h) + 1rem);
     scroll-behavior: smooth;
     font-size: 16px;
 }
@@ -282,6 +289,7 @@ body {
 .text-danger { color: var(--danger) !important; }
 .text-muted { color: var(--text-muted) !important; }
 .text-slate-300 { color: #cbd5e1; }
+.text-slate-400 { color: #94a3b8; }
 .text-xs { font-size: 0.75rem; }
 .text-sm { font-size: 0.875rem; }
 .mt-1 { margin-top: 0.25rem; }
@@ -371,7 +379,7 @@ body {
     backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border-color);
     position: sticky;
-    top: 29px; /* below health bar */
+    top: var(--status-bar-h); /* below health bar */
     z-index: 90;
     transition: var(--transition);
 }
@@ -487,6 +495,13 @@ body {
     outline: none;
     transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Enlarge the touch target to ~44px without changing the visual size */
+.theme-toggle-btn::after {
+    content: '';
+    position: absolute;
+    inset: -7px -4px;
 }
 
 .theme-toggle-btn:hover {
@@ -1848,18 +1863,38 @@ select.form-input option {
         align-items: flex-start;
         gap: 1rem;
         box-shadow: var(--card-shadow-hover);
+        /* Scroll inside the menu on short / landscape phones */
+        max-height: calc(100vh - var(--status-bar-h) - var(--header-h));
+        max-height: calc(100dvh - var(--status-bar-h) - var(--header-h));
+        overflow-y: auto;
     }
 
     .nav-links.active {
         display: flex;
     }
 
-    .mobile-toggle {
-        display: flex;
-    }
-
+    /* Fixed-height, single-line status bar so the sticky header offset stays correct */
     .top-status-bar {
         font-size: 0.7rem;
+        height: var(--status-bar-h);
+        padding: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .status-bar-content {
+        flex-wrap: nowrap;
+        width: 100%;
+    }
+
+    .status-indicator {
+        min-width: 0;
+    }
+
+    .status-label {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .status-right {
@@ -1867,6 +1902,7 @@ select.form-input option {
     }
 
     .mobile-toggle {
+        display: flex;
         padding: 0.7rem 0.6rem;
         min-width: 44px;
         min-height: 44px;
@@ -1960,8 +1996,13 @@ select.form-input option {
 
 /* Reduced Motion Accessibility */
 @media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
     *, *::before, *::after {
         transition-duration: 0.01ms !important;
         animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
     }
 }

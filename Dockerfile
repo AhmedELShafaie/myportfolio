@@ -7,7 +7,7 @@ FROM alpine:3.20 AS builder
 WORKDIR /app
 COPY . .
 # Verify file integrity and syntax
-RUN test -f index.html && test -f css/style.css && test -f js/app.js
+RUN test -f index.html && test -f css/style.css && test -f js/app.js && test -f js/terminal.js && test -f nginx.conf
 
 # Stage 2: Production Runtime with Nginx Unprivileged
 FROM nginxinc/nginx-unprivileged:1.26-alpine
